@@ -13,5 +13,11 @@
         }
     ],
     "buildCommand": "npm run build",
-    "outputDirectory": "dist"
+    "outputDirectory": "dist",
+    "functions": {
+        "dist/server/main.mjs": {
+            "runtime": "@vercel/node@2.0.0",
+            "memory": 1024
+        }
+    }
 }
