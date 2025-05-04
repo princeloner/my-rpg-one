@@ -1,0 +1,20 @@
+name = 'TON RPG'
+
+
+
+modules = [
+    './title-screen',
+    './main',
+    '@rpgjs/mobile-gui',
+    '@rpgjs/default-gui',
+    '@rpgjs/gamepad'
+]
+
+
+# Убираем автоматический запуск игры, чтобы сначала показывался title-screen
+ [start]
+#     map = 'simplemap'
+   graphic = 'hero'
+#     hitbox = [16, 16]
+[titleScreen]
+    mongodb = 'mongodb+srv://gadgeymr:Gadget256@cluster0.0trbfcl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'

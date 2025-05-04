@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>RPG Game</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimum-scale=1, width=device-width, height=device-height">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+
+<body>
+    <div id="rpg"></div>
+    
+    <style>
+        body,
+        html {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            margin: 0;
+            background-color: black; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #rpg {
+            position: relative;
+            
+        }
+
+        @media (min-width: 800px) {
+            #rpg {
+                width: 816px;
+                height: 624px;
+            }
+        }
+
+        @media (max-width: 800px) {
+            #rpg {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+            }
+        }
+    </style>
+
+    <script type="application/javascript">
+        // Инициализация Telegram WebApp
+        document.addEventListener('DOMContentLoaded', function() {
+            // Проверяем, запущено ли приложение в Telegram
+            if (window.Telegram && window.Telegram.WebApp) {
+                // Уведомляем Telegram, что приложение загружено
+                window.Telegram.WebApp.ready();
+                
+                // Отключаем возможность закрытия свайпом вниз
+                window.Telegram.WebApp.disableVerticalSwipes();
+                
+                // Расширяем приложение
+                window.Telegram.WebApp.expand();
+                
+                // Запрашиваем полноэкранный режим после небольшой задержки
+                setTimeout(function() {
+                    window.Telegram.WebApp.requestFullscreen();
+                }, 1000);
+                
+                // Обработчики событий
+                window.Telegram.WebApp.onEvent('fullscreenChanged', function() {
+                    console.log('Fullscreen mode changed:', window.Telegram.WebApp.isFullscreen);
+                });
+                
+                window.Telegram.WebApp.onEvent('fullscreenFailed', function(params) {
+                    console.error('Failed to enter fullscreen mode:', params.error);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
