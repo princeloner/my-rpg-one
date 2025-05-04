@@ -2,14 +2,17 @@
     "version": 2,
     "builds": [
         {
-            "src": "dist/server/main.mjs",
+            "src": "package.json",
             "use": "@vercel/node"
         }
     ],
     "routes": [
         {
-            "src": "/(.*)",
-            "dest": "dist/server/main.mjs"
+            "handle": "filesystem"
+        },
+        {
+            "src": "/.*",
+            "dest": "/"
         }
     ],
     "buildCommand": "npm run build",
